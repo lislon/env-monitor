@@ -4,6 +4,8 @@ import org.envtools.monitor.model.querylibrary.db.LibQuery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author Yury Yakovlev
  */

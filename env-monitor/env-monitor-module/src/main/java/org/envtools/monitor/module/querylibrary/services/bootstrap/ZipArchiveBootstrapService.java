@@ -1,5 +1,6 @@
 package org.envtools.monitor.module.querylibrary.services.bootstrap;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
 import org.envtools.monitor.model.querylibrary.QueryParamType;
 import org.envtools.monitor.model.querylibrary.db.Category;
@@ -94,14 +95,10 @@ public class ZipArchiveBootstrapService implements BootstrapService {
         try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(rootPath)) {
             for (Path path : directoryStream) {
                 if (Files.isDirectory(path)) {
-
                     Category cat = createCategory(path, rootCat);
                     descendIntoDirectory(path, cat);
-                    categoryDao.saveAndFlush(cat);
-
                 } else {
-                    LibQuery query = createQuery(path, rootCat);
-                    libQueryDao.saveAndFlush(query);
+                    createQuery(path, rootCat);
                 }
             }
         }
@@ -109,9 +106,14 @@ public class ZipArchiveBootstrapService implements BootstrapService {
 
     private LibQuery createQuery(Path path, Category category) throws IOException, BootstrapZipParseException  {
 
+        LOGGER.debug(String.format("Reading file '%s'", path.toString()));
+
         LibQuery libQuery = new LibQuery();
-        libQuery.setQueryParams(new ArrayList<>());
-        category.getQueries().add(libQuery);
+        libQuery.setCategory(category);
+        // by default use filename as title for queries
+        libQuery.setTitle(FilenameUtils.getBaseName(path.toString()));
+        // save to get an id for saving libQueryParam
+        libQueryDao.saveAndFlush(libQuery);
 
         boolean rawSqlPart = false;
 
@@ -152,7 +154,10 @@ public class ZipArchiveBootstrapService implements BootstrapService {
                             }
 
                             QueryParam queryParam = new QueryParam(nameAndType[0], QueryParamType.valueOf(nameAndType[1]));
-                            libQuery.getQueryParams().add(queryParam);
+                            queryParam.setLibQuery(libQuery);
+                            queryParamDao.save(queryParam);
+
+//                            libQuery.getQueryParams().add(queryParam);
                             break;
                         default:
                             throw new BootstrapZipParseException(String.format("Unexpected param '%s' at line %d in '%s'", line, lineNumber, path.getFileName().toString()));
@@ -166,7 +171,7 @@ public class ZipArchiveBootstrapService implements BootstrapService {
 
             libQuery.setText(rawSqlString.toString().trim());
         }
-
+        libQueryDao.save(libQuery);
 
         return libQuery;
     }
@@ -175,18 +180,10 @@ public class ZipArchiveBootstrapService implements BootstrapService {
 
         Category cat = new Category();
 
-
         cat.setQueries(new ArrayList<>());
         cat.setTitle(path.getFileName().toString());
-
-        if (parentCat != null) {
-            // add parent-child relation on both sides of the link
-            if (parentCat.getChildCategories() == null) {
-                parentCat.setChildCategories(new ArrayList<>());
-            }
-            parentCat.getChildCategories().add(cat);
-            cat.setParentCategory(parentCat);
-        }
+        cat.setParentCategory(parentCat);
+        categoryDao.saveAndFlush(cat);
 
         return cat;
     }

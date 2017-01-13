@@ -2,5 +2,5 @@
     <user>yyakovlev</user>
     <host>shell.xShellz.com</host>
     <encrypted-password>Wo+YhvpUu4650gaxdgQFbcXJwqgZQHLZ</encrypted-password>
-    <load-at-startup>true</load-at-startup>
+    <load-at-startup>false</load-at-startup>
 </credentials>

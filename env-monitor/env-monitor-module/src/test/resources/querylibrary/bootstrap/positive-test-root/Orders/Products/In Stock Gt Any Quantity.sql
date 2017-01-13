@@ -1,5 +1,5 @@
---TITLE  Best Query Ever =>)
---DESCRIPTION  Get Netting Group calculations in MCS Run by run context id 
+--TITLE  In Stock > Any quantity
+--DESCRIPTION  Some description with -- characters
 --PARAM price:STRING
 --PARAM quantity:NUMBER
 

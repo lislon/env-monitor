@@ -1,8 +1,15 @@
 package org.envtools.monitor.module.querylibrary.services.bootstrap;
 
+import org.apache.log4j.Logger;
+import org.envtools.monitor.model.querylibrary.QueryParamType;
+import org.envtools.monitor.model.querylibrary.QueryType;
 import org.envtools.monitor.model.querylibrary.db.Category;
+import org.envtools.monitor.model.querylibrary.db.LibQuery;
 import org.envtools.monitor.module.querylibrary.PersistenceTestApplication;
 import org.envtools.monitor.module.querylibrary.dao.CategoryDao;
+import org.envtools.monitor.module.querylibrary.dao.LibQueryDao;
+import org.envtools.monitor.module.querylibrary.dao.QueryParamDao;
+import org.envtools.monitor.module.querylibrary.repo.QueryParamRepositoryIT;
 import org.envtools.monitor.module.querylibrary.services.BootstrapService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -31,11 +38,18 @@ import java.util.List;
 @Transactional
 public class ZipArchiveBootstrapServiceIT implements ApplicationContextAware {
 
+    private static final Logger LOGGER = Logger.getLogger(ZipArchiveBootstrapService.class);
+
     @Resource(name = "querylibrary.bootstrapper.zip")
     BootstrapService bootstrapService;
 
     @Autowired
     CategoryDao categoryDao;
+
+    @Autowired
+    LibQueryDao queryDao;
+    @Autowired
+    QueryParamDao queryParamDao;
 
     private ApplicationContext applicationContext;
 
@@ -45,10 +59,48 @@ public class ZipArchiveBootstrapServiceIT implements ApplicationContextAware {
     }
 
     @Test
-    public void testPositive() throws Exception
-    {
+    public void testCategories() throws Exception {
         bootstrapService.bootstrap();
-        List<Category> rootCategories = categoryDao.getRootCategories();
-        Assert.assertEquals(1, rootCategories.size());
+
+
+        Assert.assertEquals(1, categoryDao.getRootCategories().size());
+
+        Assert.assertEquals(1, categoryDao.getCategoryByTitle("Product Lines").size());
+    }
+
+    @Test
+    public void testQueryByFilename() throws Exception {
+        bootstrapService.bootstrap();
+
+        List<LibQuery> libQueryByTextFragment = queryDao.getLibQueryByTextFragment("SELECT * FROM PRODUCT_LINES");
+
+        Assert.assertEquals(1, libQueryByTextFragment.size());
+
+        LibQuery allProductLinesQuery = libQueryByTextFragment.get(0);
+
+        Assert.assertEquals("All Product Lines", allProductLinesQuery.getTitle());
+        Assert.assertNull(allProductLinesQuery.getDescription());
+    }
+
+    @Test
+    public void testQueryTitleOverride() throws Exception {
+        bootstrapService.bootstrap();
+        LOGGER.debug("Hello");
+
+        List<LibQuery> libQueryComplexList = queryDao.getLibQueryByTextFragment("SELECT * FROM PRODUCTS WHERE QUANTITY_IN_STOCK > :quantity AND BUY_PRICE > :price");
+
+        Assert.assertEquals(1, libQueryComplexList.size());
+
+        LibQuery complexQuery = libQueryComplexList.get(0);
+        Assert.assertEquals("In Stock > Any quantity", complexQuery.getTitle());
+        Assert.assertEquals("Some description with -- characters", complexQuery.getDescription());
+
+
+
+        Assert.assertEquals(2, complexQuery.getQueryParams().size());
+        Assert.assertEquals("price", complexQuery.getQueryParams().get(0).getName());
+        Assert.assertEquals(QueryParamType.NUMBER, complexQuery.getQueryParams().get(0).getType());
+        Assert.assertEquals("SELECT * FROM PRODUCTS WHERE QUANTITY_IN_STOCK > :quantity AND BUY_PRICE > :price", complexQuery.getText());
+
     }
 }
