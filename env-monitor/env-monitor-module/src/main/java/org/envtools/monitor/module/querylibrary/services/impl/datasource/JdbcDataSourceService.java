@@ -3,7 +3,8 @@ package org.envtools.monitor.module.querylibrary.services.impl.datasource;
 import com.google.common.collect.ImmutableSet;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ import static org.envtools.monitor.common.util.PropertyUtil.getRequiredValue;
 @Service
 public class JdbcDataSourceService extends AbstractDataSourceService<BasicDataSource> {
 
-    private static final Logger LOGGER = Logger.getLogger(AbstractDataSourceService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractDataSourceService.class);
 
     public static final String DRIVER_CLASS_NAME_PROPERTY_NAME = "driverClassName";
     public static final String URL_PROPERTY_NAME = "url";

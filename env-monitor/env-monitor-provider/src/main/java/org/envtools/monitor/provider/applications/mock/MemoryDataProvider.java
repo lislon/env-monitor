@@ -1,6 +1,7 @@
 package org.envtools.monitor.provider.applications.mock;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created: 10/31/15 1:53 AM
@@ -9,7 +10,7 @@ import org.apache.log4j.Logger;
  */
 public class MemoryDataProvider {
 
-    private static final Logger LOGGER = Logger.getLogger(MemoryDataProvider.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MemoryDataProvider.class);
 
     public Long getFreeMemory() {
         return Runtime.getRuntime().freeMemory();

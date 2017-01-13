@@ -6,7 +6,8 @@ import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.ConvertUtilsBean;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.envtools.monitor.model.querylibrary.DataProviderType;
 import org.envtools.monitor.model.querylibrary.updates.DataOperation;
@@ -41,7 +42,7 @@ import java.util.*;
 @Transactional
 public class DataOperationServiceImpl implements DataOperationService<Long> {
 
-    private static final Logger LOGGER = Logger.getLogger(DataOperationServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataOperationServiceImpl.class);
     private static final String ID_FLAG = "_id";
     private static final String path = "org.envtools.monitor.model.querylibrary.db.";
 

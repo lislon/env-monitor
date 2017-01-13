@@ -1,6 +1,7 @@
 package org.envtools.monitor.common.messaging.broker.simple;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.common.jaxb.JaxbHelper;
 import org.envtools.monitor.common.messaging.Consumer;
 import org.envtools.monitor.common.messaging.Producer;
@@ -19,7 +20,7 @@ import java.util.concurrent.BlockingQueue;
  */
 public class SocketConnectionHandler implements Runnable {
 
-    private static final Logger LOGGER = Logger.getLogger(SocketConnectionHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SocketConnectionHandler.class);
 
     private ConnectionTypeEnum connectionType;
 

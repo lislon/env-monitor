@@ -1,6 +1,7 @@
 package org.envtools.monitor.ui.controller.util;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.messaging.SubscribableChannel;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,7 @@ import javax.annotation.Resource;
 @Component
 public class WebSocketTracer {
 
-    private static final Logger LOGGER = Logger.getLogger(WebSocketTracer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WebSocketTracer.class);
 
     @Resource(name = "clientInboundChannel")
     SubscribableChannel clientInboundChannel;

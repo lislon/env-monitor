@@ -1,7 +1,8 @@
 package org.envtools.monitor.module.querylibrary.dao.impl;
 
 import edu.umd.cs.findbugs.annotations.Nullable;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.querylibrary.db.DataSource;
 import org.envtools.monitor.model.querylibrary.db.LibQuery;
 import org.envtools.monitor.module.querylibrary.dao.DataSourceDao;
@@ -16,7 +17,7 @@ import java.util.List;
 public class DataSourceDaoImpl extends AbstractDbDao<DataSource, Long> implements DataSourceDao {
 
 
-    private static final Logger LOGGER = Logger.getLogger(DataSourceDaoImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataSourceDaoImpl.class);
 
     public DataSourceDaoImpl() {
 

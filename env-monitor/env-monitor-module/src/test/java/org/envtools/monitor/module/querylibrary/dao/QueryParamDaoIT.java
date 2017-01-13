@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary.dao;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.querylibrary.DataProviderType;
 import org.envtools.monitor.model.querylibrary.QueryParamType;
 import org.envtools.monitor.model.querylibrary.db.LibQuery;
@@ -28,7 +29,7 @@ import java.util.List;
 @Transactional
 public class QueryParamDaoIT {
 
-    private static final Logger LOGGER = Logger.getLogger(LibQueryDaoIT.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LibQueryDaoIT.class);
 
     @Autowired
     QueryParamDao queryParamDao;

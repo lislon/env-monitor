@@ -2,7 +2,8 @@ package org.envtools.monitor.provider.applications.remote;
 
 import com.jcraft.jsch.JSchException;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.common.ssh.SshBatch;
 import org.envtools.monitor.common.ssh.SshHelperService;
 import org.envtools.monitor.model.applications.ApplicationStatus;
@@ -26,7 +27,7 @@ import static org.envtools.monitor.provider.applications.remote.SshCommandResult
  */
 public class RemoteMetricsServiceImpl implements RemoteMetricsService {
 
-    private static final Logger LOGGER = Logger.getLogger(RemoteMetricsServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RemoteMetricsServiceImpl.class);
 
     private SshHelperService sshHelperService;
 

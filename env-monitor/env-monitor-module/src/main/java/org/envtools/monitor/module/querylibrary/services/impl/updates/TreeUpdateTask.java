@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary.services.impl.updates;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.querylibrary.updates.UpdateTrigger;
 import org.envtools.monitor.module.querylibrary.services.TreeUpdateService;
 import org.envtools.monitor.module.querylibrary.services.TreeUpdateTriggerService;
@@ -10,7 +11,7 @@ import org.envtools.monitor.module.querylibrary.services.TreeUpdateTriggerServic
  */
 
 public class TreeUpdateTask implements Runnable {
-    private static final Logger LOGGER = Logger.getLogger(TreeUpdateTask.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TreeUpdateTask.class);
 
     private TreeUpdateTriggerService treeUpdateTriggerService;
 

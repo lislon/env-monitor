@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary.dao;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.querylibrary.db.DataSourceProperty;
 import org.envtools.monitor.module.querylibrary.PersistenceTestApplication;
 import org.junit.Test;
@@ -24,7 +25,7 @@ import java.util.List;
 @TestPropertySource(locations = "classpath:/persistence/application-persistence-test.properties")
 @Transactional
 public class DataSourcePropertiesDaoIT {
-    private static final Logger LOGGER = Logger.getLogger(DataSourceDaoIT.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataSourceDaoIT.class);
 
     @Autowired
     DataSourcePropertiesDao dataSourcePropertiesDao;

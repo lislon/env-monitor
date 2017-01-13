@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary.dao;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.querylibrary.db.Category;
 
 import org.envtools.monitor.module.querylibrary.PersistenceTestApplication;
@@ -26,7 +27,7 @@ import java.util.List;
 @Transactional
 public class CategoryDaoIT {
 
-    private static final Logger LOGGER = Logger.getLogger(CategoryDaoIT.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CategoryDaoIT.class);
 
     @Autowired
     CategoryDao categoryDao;

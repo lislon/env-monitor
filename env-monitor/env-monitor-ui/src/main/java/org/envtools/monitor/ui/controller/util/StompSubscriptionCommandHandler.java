@@ -1,7 +1,8 @@
 package org.envtools.monitor.ui.controller.util;
 
 import com.google.common.collect.Maps;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.module.ModuleConstants;
 import org.envtools.monitor.common.serialization.aggregator.Aggregator;
 import org.envtools.monitor.module.core.cache.ApplicationsDataPushService;
@@ -33,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class StompSubscriptionCommandHandler {
 
-    private static final Logger LOGGER = Logger.getLogger(StompSubscriptionCommandHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(StompSubscriptionCommandHandler.class);
 
     @Autowired
     private ApplicationsDataPushService applicationsDataPushService;

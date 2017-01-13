@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary.services;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.querylibrary.DataProviderType;
 import org.envtools.monitor.model.querylibrary.db.*;
 import org.envtools.monitor.model.querylibrary.updates.DataOperation;
@@ -35,7 +36,7 @@ import java.util.Map;
 @TestPropertySource(locations = "classpath:/persistence/application-persistence-test.properties")
 @Transactional
 public class DataOperationServiceImplTest {
-    private static final Logger LOGGER = Logger.getLogger(DataOperationServiceImplTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataOperationServiceImplTest.class);
 
     @Autowired
     CategoryDao categoryDao;

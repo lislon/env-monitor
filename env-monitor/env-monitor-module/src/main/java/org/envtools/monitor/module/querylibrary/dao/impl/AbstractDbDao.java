@@ -2,7 +2,8 @@ package org.envtools.monitor.module.querylibrary.dao.impl;
 
 import com.google.common.collect.Lists;
 import edu.umd.cs.findbugs.annotations.Nullable;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.module.querylibrary.dao.Dao;
 
 import javax.annotation.PostConstruct;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 public abstract class AbstractDbDao<T, ID extends Serializable> implements Dao<T, ID> {
 
-    private static final Logger LOGGER = Logger.getLogger(AbstractDbDao.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractDbDao.class);
 
     @PersistenceContext
     protected EntityManager em;

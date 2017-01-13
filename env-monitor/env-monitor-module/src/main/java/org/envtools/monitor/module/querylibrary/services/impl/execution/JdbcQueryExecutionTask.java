@@ -3,7 +3,8 @@ package org.envtools.monitor.module.querylibrary.services.impl.execution;
 
 import com.google.common.collect.Lists;
 import org.apache.commons.dbcp.BasicDataSource;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.common.util.ExceptionReportingUtil;
 import org.envtools.monitor.model.querylibrary.db.LibQuery;
 import org.envtools.monitor.model.querylibrary.db.QueryExecution;
@@ -38,7 +39,7 @@ import static org.envtools.monitor.model.querylibrary.execution.QueryExecutionRe
  */
 public class JdbcQueryExecutionTask extends AbstractQueryExecutionTask {
 
-    private static final Logger LOGGER = Logger.getLogger(JdbcQueryExecutionTask.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JdbcQueryExecutionTask.class);
 
     private BasicDataSource jdbcDataSource;
 

@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary.dao;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.querylibrary.db.LibQuery;
 import org.envtools.monitor.model.querylibrary.db.QueryExecution;
 import org.envtools.monitor.model.querylibrary.db.QueryExecutionParam;
@@ -27,7 +28,7 @@ import java.util.List;
 @TestPropertySource(locations = "classpath:/persistence/application-persistence-test.properties")
 @Transactional
 public class QueryExecutionParamDaoIT {
-    private static final Logger LOGGER = Logger.getLogger(QueryExecutionDaoIT.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(QueryExecutionDaoIT.class);
 
     @Autowired
     QueryExecutionParamDao queryExecutionParamDao;

@@ -1,7 +1,8 @@
 package org.envtools.monitor.module.core;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.module.core.selection.Extractor;
 import org.envtools.monitor.module.core.selection.JSONExtractor;
 import org.envtools.monitor.module.core.selection.SimplePathSelector;
@@ -15,7 +16,7 @@ import org.testng.annotations.Test;
  */
 public class TestJSONExtractor {
 
-    private static final Logger LOGGER = Logger.getLogger(TestJSONExtractor.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TestJSONExtractor.class);
 
     private Extractor<String, SimplePathSelector> extractor = new JSONExtractor();
 

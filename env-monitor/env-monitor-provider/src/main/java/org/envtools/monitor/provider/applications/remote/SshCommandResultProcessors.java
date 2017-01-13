@@ -1,6 +1,7 @@
 package org.envtools.monitor.provider.applications.remote;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.applications.ApplicationStatus;
 import org.envtools.monitor.provider.applications.configurable.model.LinkBasedVersionLookupXml;
 import org.springframework.util.StringUtils;
@@ -17,7 +18,7 @@ import java.util.regex.Pattern;
  */
 public class SshCommandResultProcessors {
 
-    private static final Logger LOGGER = Logger.getLogger(SshCommandResultProcessors.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SshCommandResultProcessors.class);
 
     private static final int DEFAULT_GROUP_INDEX = 1;
 

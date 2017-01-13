@@ -2,7 +2,8 @@ package org.envtools.monitor.module.querylibrary.services.impl.execution;
 
 import com.google.common.util.concurrent.*;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.common.util.ExceptionReportingUtil;
 import org.envtools.monitor.model.querylibrary.db.LibQuery;
 import org.envtools.monitor.model.querylibrary.db.QueryExecution;
@@ -38,7 +39,7 @@ import java.util.concurrent.*;
 @Transactional
 public class QueryExecutionServiceImpl implements QueryExecutionService {
 
-    private static final Logger LOGGER = Logger.getLogger(QueryExecutionServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(QueryExecutionServiceImpl.class);
 
     @Autowired
     private JdbcDataSourceService jdbcDataSourceService;

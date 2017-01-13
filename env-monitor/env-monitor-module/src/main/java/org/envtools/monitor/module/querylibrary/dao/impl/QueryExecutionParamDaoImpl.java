@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary.dao.impl;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.querylibrary.db.QueryExecution;
 import org.envtools.monitor.model.querylibrary.db.QueryExecutionParam;
 import org.envtools.monitor.module.querylibrary.dao.QueryExecutionParamDao;
@@ -16,7 +17,7 @@ import java.util.List;
 @Repository
 public class QueryExecutionParamDaoImpl extends AbstractDbDao<QueryExecutionParam, Long> implements QueryExecutionParamDao {
 
-    private static final Logger LOGGER = Logger.getLogger(QueryExecutionParamDaoImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(QueryExecutionParamDaoImpl.class);
 
     public QueryExecutionParamDaoImpl() {
 

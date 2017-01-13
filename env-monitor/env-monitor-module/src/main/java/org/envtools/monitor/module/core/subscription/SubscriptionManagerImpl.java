@@ -3,7 +3,8 @@ package org.envtools.monitor.module.core.subscription;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -16,7 +17,7 @@ import java.util.Set;
 @Component
 public class SubscriptionManagerImpl implements SubscriptionManager {
 
-    private static final Logger LOGGER = Logger.getLogger(SubscriptionManagerImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SubscriptionManagerImpl.class);
 
     private Multimap<String, String> subscribersByDestination = ArrayListMultimap.create();
 

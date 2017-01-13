@@ -1,6 +1,7 @@
 package org.envtools.monitor.provider.applications.configurable;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.common.ssh.SshBatch;
 import org.envtools.monitor.common.ssh.SshHelperService;
 import org.envtools.monitor.model.applications.ApplicationStatus;
@@ -23,7 +24,7 @@ import java.util.List;
  * Created by Michal Skuza on 27/07/16.
  */
 public class ConfigurableApplicationsModuleProvider implements ApplicationsModuleProvider {
-    private static final Logger LOGGER = Logger.getLogger(ConfigurableApplicationsModuleProvider.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigurableApplicationsModuleProvider.class);
 
     private UpdateNotificationHandler handler;
 

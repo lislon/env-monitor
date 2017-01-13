@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.core.cache;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.messaging.ResponseMessage;
 import org.envtools.monitor.model.messaging.ResponsePayload;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
  */
 public abstract class AbstractPushService implements DataPushService {
 
-    protected Logger LOGGER = Logger.getLogger(getClass());
+    protected Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     //We mark this as optional for tests that don't include env-monitor-ui spring context
     //TODO provide a cleaner solution

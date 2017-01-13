@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.envtools.monitor.common.serialization.Serializer;
@@ -43,7 +44,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class QueryLibraryModule extends AbstractPluggableModule {
 
 
-    private static final Logger LOGGER = Logger.getLogger(QueryLibraryModule.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(QueryLibraryModule.class);
 
     public static final Map<String, Class<?>> PAYLOAD_TYPES = new HashMap<String, Class<?>>() {
         {

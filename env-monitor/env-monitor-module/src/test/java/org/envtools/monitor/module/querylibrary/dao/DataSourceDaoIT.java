@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary.dao;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.querylibrary.DataProviderType;
 import org.envtools.monitor.model.querylibrary.db.DataSource;
 import org.envtools.monitor.module.querylibrary.PersistenceTestApplication;
@@ -24,7 +25,7 @@ import java.util.List;
 @Transactional
 public class DataSourceDaoIT {
 
-    private static final Logger LOGGER = Logger.getLogger(DataSourceDaoIT.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataSourceDaoIT.class);
 
     @Autowired
     DataSourceDao dataSourceDao;

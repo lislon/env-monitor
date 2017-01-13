@@ -1,6 +1,7 @@
 package org.envtools.monitor.common.ssh;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.common.jaxb.JaxbHelper;
 import org.junit.*;
 
@@ -14,7 +15,7 @@ import java.io.IOException;
 @Ignore
 public class SshCredentialsServiceTest {
 
-    private static final Logger LOG = Logger.getLogger(SshCredentialsServiceTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SshCredentialsServiceTest.class);
 
     private final String expectedPassword = "password";
     private final String fileName = "test";

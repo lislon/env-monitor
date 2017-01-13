@@ -6,7 +6,8 @@ import net.minidev.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 
 import com.jayway.jsonpath.*;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.Optional;
 @Component
 public class JSONExtractor implements Extractor<String, SimplePathSelector> {
 
-    private static final Logger LOGGER = Logger.getLogger(JSONExtractor.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JSONExtractor.class);
 
     private static final String ID_JSONPATH_PATTERN = "[?(@.id=='%s')]";
     private static final String JSONPATH_DELIM = ".";

@@ -1,6 +1,7 @@
 package org.envtools.monitor.common.ssh;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.common.encrypting.EncryptionService;
 import org.envtools.monitor.common.encrypting.EncryptionServiceImpl;
 import org.envtools.monitor.common.jaxb.JaxbHelper;
@@ -15,7 +16,7 @@ import java.util.Properties;
  */
 public class SshCredentialsServiceImpl implements SshCredentialsService {
 
-    private static final Logger LOGGER = Logger.getLogger(SshCredentialsServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SshCredentialsServiceImpl.class);
 
     private final File credentialsDirectory;
 

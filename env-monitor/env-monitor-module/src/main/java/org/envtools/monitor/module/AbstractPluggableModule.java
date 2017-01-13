@@ -1,6 +1,7 @@
 package org.envtools.monitor.module;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.envtools.monitor.model.messaging.RequestMessage;
 import org.envtools.monitor.model.messaging.RequestPayload;
@@ -28,7 +29,7 @@ import java.util.concurrent.ExecutionException;
 
 public abstract class AbstractPluggableModule implements Module {
 
-    private static final Logger LOGGER = Logger.getLogger(AbstractPluggableModule.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractPluggableModule.class);
 
     //@Resource(name = "core.channel")
     //MessageChannel coreModuleChannel;

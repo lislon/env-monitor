@@ -1,6 +1,7 @@
 package org.envtools.monitor.provider.applications.mock;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.applications.ApplicationsData;
 import org.envtools.monitor.model.applications.ApplicationsModuleProvider;
 import org.envtools.monitor.model.applications.update.UpdateNotificationHandler;
@@ -21,7 +22,7 @@ import javax.persistence.PersistenceContext;
 
 public class MockApplicationsModuleProvider implements ApplicationsModuleProvider {
 
-    private static final Logger LOGGER = Logger.getLogger(MockApplicationsModuleProvider.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MockApplicationsModuleProvider.class);
 
     private ApplicationsData data = new ApplicationsData();
 

@@ -1,6 +1,7 @@
 package org.envtools.monitor.ui.controller;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.messaging.RequestMessage;
 import org.envtools.monitor.module.ModuleConstants;
 import org.springframework.messaging.MessageChannel;
@@ -20,7 +21,7 @@ import javax.annotation.Resource;
 @Controller
 public class WebSocketMessageController {
 
-    private static final Logger LOGGER = Logger.getLogger(WebSocketMessageController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WebSocketMessageController.class);
 
     @Resource(name = "applications.channel")
     MessageChannel applicationsModuleChannel;

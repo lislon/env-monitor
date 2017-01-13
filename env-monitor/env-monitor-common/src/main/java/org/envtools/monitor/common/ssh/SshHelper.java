@@ -1,7 +1,8 @@
 package org.envtools.monitor.common.ssh;
 
 import com.jcraft.jsch.*;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.InputStream;
 
@@ -9,7 +10,7 @@ import java.io.InputStream;
  * Created by Michal Skuza on 09/06/16.
  */
 public class SshHelper {
-    private static final Logger LOGGER = Logger.getLogger(SshHelper.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SshHelper.class);
 
     private final String user;
     private final String host;

@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.core.cache;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.module.core.selection.Extractor;
 import org.envtools.monitor.module.core.selection.SimplePathSelector;
 import org.envtools.monitor.module.core.selection.exception.IllegalSelectorException;
@@ -16,7 +17,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ApplicationsModuleStorageServiceImpl implements ApplicationsModuleStorageService {
 
-    private static final Logger LOGGER = Logger.getLogger(ApplicationsModuleStorageServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationsModuleStorageServiceImpl.class);
 
     private String serializedApplicationsData;
 

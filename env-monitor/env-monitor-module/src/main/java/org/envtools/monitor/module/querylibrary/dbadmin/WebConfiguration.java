@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary.dbadmin;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +19,7 @@ public class WebConfiguration {
     // If whenever the module starts in a separate JVM,
     // respective additional web configuration must be provided
 
-    private static final Logger LOGGER = Logger.getLogger(WebConfiguration.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WebConfiguration.class);
 
     @Bean
     ServletRegistrationBean h2servletRegistration() {

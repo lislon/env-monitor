@@ -1,6 +1,7 @@
 package org.envtools.monitor.common.serialization;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
 
@@ -14,7 +15,7 @@ import java.io.Serializable;
  */
 public class JacksonJSONSerializer implements Serializer {
 
-    private static final Logger LOGGER = Logger.getLogger(JacksonJSONSerializer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JacksonJSONSerializer.class);
 
     @Override
     public String serialize(Serializable object) {

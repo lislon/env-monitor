@@ -1,6 +1,7 @@
 package org.envtools.monitor.ui.app.config;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.module.querylibrary.services.filler.QueryLibDbFiller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,7 +24,7 @@ import javax.persistence.PersistenceContext;
 @Transactional
 public class QueryLibFillerInvoke {
 
-    private static final Logger LOGGER = Logger.getLogger(QueryLibFillerInvoke.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(QueryLibFillerInvoke.class);
 
     @PersistenceContext
     protected EntityManager entityManager;

@@ -1,6 +1,7 @@
 package org.envtools.monitor.ui.controller;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.ui.controller.util.StompSubscriptionCommandHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -18,7 +19,7 @@ import org.springframework.web.socket.messaging.SessionSubscribeEvent;
 @Component
 public class WebSocketSubscriptionController implements ApplicationListener<SessionSubscribeEvent> {
 
-    private static final Logger LOGGER = Logger.getLogger(WebSocketSubscriptionController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WebSocketSubscriptionController.class);
 
     /**
      * This handler is a service responsible for handling all subscription commands to all modules

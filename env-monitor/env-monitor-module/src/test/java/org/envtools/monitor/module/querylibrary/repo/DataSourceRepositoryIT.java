@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary.repo;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.module.querylibrary.PersistenceTestApplication;
 
 import org.junit.runner.RunWith;
@@ -28,7 +29,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @IntegrationTest
 public class DataSourceRepositoryIT {
 
-    private static final Logger LOGGER = Logger.getLogger(DataSourceRepositoryIT.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataSourceRepositoryIT.class);
 
     public static final String DATASET = "classpath:/persistence/dbunit/data-source-repo-test.xml";
 

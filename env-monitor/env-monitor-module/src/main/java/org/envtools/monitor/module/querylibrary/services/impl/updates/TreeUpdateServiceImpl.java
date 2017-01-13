@@ -1,7 +1,8 @@
 package org.envtools.monitor.module.querylibrary.services.impl.updates;
 
 import com.google.common.collect.Lists;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.messaging.ResponseMessage;
 import org.envtools.monitor.model.messaging.ResponseType;
 import org.envtools.monitor.model.messaging.content.MapContent;
@@ -30,7 +31,7 @@ import java.util.Map;
 @Service
 public class TreeUpdateServiceImpl implements TreeUpdateService {
 
-    private static final Logger LOGGER = Logger.getLogger(TreeUpdateServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TreeUpdateServiceImpl.class);
 
     @Autowired
     CategoryDao categoryDao;

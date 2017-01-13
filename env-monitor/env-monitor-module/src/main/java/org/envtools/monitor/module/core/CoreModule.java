@@ -1,7 +1,8 @@
 package org.envtools.monitor.module.core;
 
 import com.google.common.collect.Maps;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.model.messaging.ResponseMessage;
 import org.envtools.monitor.model.messaging.ResponseType;
 import org.envtools.monitor.model.messaging.content.AbstractContent;
@@ -37,7 +38,7 @@ import java.util.concurrent.Executors;
 
 public class CoreModule implements Module {
 
-    private static final Logger LOGGER = Logger.getLogger(CoreModule.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CoreModule.class);
 
     /**
      * This service is responsible for pushing applications module data from cache/storage to clients

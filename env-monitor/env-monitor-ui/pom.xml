@@ -23,6 +23,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
+            <!-- Exclude default logging. log4j is enabled in parent pom.xml -->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.springframework.boot</groupId>-->
+                    <!--<artifactId>spring-boot-starter-logging</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -100,6 +107,7 @@
                     <include>**/static/ui-grid*</include>
                     <include>**/static/generated/*</include>
                     <include>**/application.properties</include>
+                    <include>**/logback.*</include>
                     <include>**/configuration/**</include>
                 </includes>
             </resource>

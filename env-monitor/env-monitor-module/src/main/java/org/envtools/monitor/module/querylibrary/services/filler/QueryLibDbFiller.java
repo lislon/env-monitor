@@ -1,6 +1,7 @@
 package org.envtools.monitor.module.querylibrary.services.filler;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.envtools.monitor.model.querylibrary.DataProviderType;
 import org.envtools.monitor.model.querylibrary.QueryParamType;
@@ -20,7 +21,7 @@ import java.util.UUID;
 public class QueryLibDbFiller {
     private static final int rowCount = 5;
 
-    private static final Logger LOGGER = Logger.getLogger(QueryLibDbFiller.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(QueryLibDbFiller.class);
 
     public static void fillDatabase(EntityManager em, boolean createSampleTestHistory) {
         LOGGER.info("Start to fill database");

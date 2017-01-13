@@ -1,7 +1,8 @@
 package org.envtools.monitor.provider.applications.remote;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -17,7 +18,7 @@ import java.util.Optional;
  */
 public class BasicUrlServiceImpl implements BasicUrlService {
 
-    private static final Logger LOGGER = Logger.getLogger(BasicUrlServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BasicUrlServiceImpl.class);
 
     private int readTimeoutMs;
     private int connectTimeoutMs;

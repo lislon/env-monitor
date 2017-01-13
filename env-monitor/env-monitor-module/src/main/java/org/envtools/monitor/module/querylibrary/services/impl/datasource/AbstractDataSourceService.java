@@ -2,7 +2,8 @@ package org.envtools.monitor.module.querylibrary.services.impl.datasource;
 
 import com.google.common.collect.Maps;
 import com.google.common.util.concurrent.Striped;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.envtools.monitor.module.querylibrary.services.DataSourceService;
 
 import javax.annotation.PreDestroy;
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
  */
 public abstract class AbstractDataSourceService<T> implements DataSourceService<T> {
 
-    private static final Logger LOGGER = Logger.getLogger(AbstractDataSourceService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractDataSourceService.class);
 
     private static final int N_PRECREATED_LOCKS = 20;
 
