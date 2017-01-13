@@ -2,8 +2,8 @@
 
 # ########## APPLICATIONS module
 
-#applications.provider=org.envtools.monitor.provider.applications.mock.MockApplicationsModuleProvider
-applications.provider=org.envtools.monitor.provider.applications.configurable.ConfigurableApplicationsModuleProvider
+applications.provider=org.envtools.monitor.provider.applications.mock.MockApplicationsModuleProvider
+#applications.provider=org.envtools.monitor.provider.applications.configurable.ConfigurableApplicationsModuleProvider
 
 #hosts.directory=classpath:configuration/hosts
 hosts.directory=classpath:configuration/xshellz_test_hosts
