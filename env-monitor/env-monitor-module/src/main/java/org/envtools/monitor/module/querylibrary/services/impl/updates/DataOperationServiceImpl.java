@@ -1,6 +1,6 @@
 package org.envtools.monitor.module.querylibrary.services.impl.updates;
 
-import com.sun.javafx.css.converters.EnumConverter;
+// import com.sun.javafx.css.converters.EnumConverter;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.ConvertUtils;
